@@ -1,42 +1,50 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import Landing from "./Components/Landing/LandingPage.jsx";
 import "./App.css";
-
 import { Foot } from "./Components/Footer/Footer.jsx";
 import { MyFoot } from "./Components/myFoot/MyFooter.jsx";
 import { Inicio } from "./Components/LandingStart/LandingStart.jsx";
 import LandingPage from "./Components/Landing/LandingPage.jsx";
-
 import { BagXX } from "./Components/myBag/myBag.jsx";
 import {
   asyncCategorias,
   asyncComercio,
+  asyncIdComercio,
   asyncSubCategorias,
   asyncUser,
 } from "./Components/redux/slice.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import store, { saveStateToLocalStorage } from "./Components/redux/store.jsx";
 import { ToastContainer } from "react-toastify";
-
 import { CompSubCat } from "./Components/Categorias/CompSubCat.jsx";
 import { AdminPanel } from "./Components/Comander/AdminPanel.jsx";
+import { useParams } from "react-router-dom/cjs/react-router-dom.js";
+
+import imgBakc from "./Components/assets/bgMadre2.png"
 // import { Bag } from './Components/Categorias/Bag.jsx';
 
 function App() {
   const dispatch = useDispatch();
-  const { allProduct, favProd, categorias, comercio } = useSelector(
+  const {  categorias } = useSelector(
     (state) => state.alldata
   );
-
   // Determina si alguno de los estados relevantes ha cambiado
   const [isEffectExecuted, setIsEffectExecuted] = useState(false);
+  const pathname = window.location.pathname; // Obtener la parte de la URL que contiene el pathname
+  const id = pathname.match(/\/(\d+)\/?/); // Buscar los números entre las barras inclinadas
+  
+  if (id && id.length > 1) {
+    console.log("ID extraído:", id[1]); // El ID estará en la segunda posición del array devuelto por match
+  } else {
+    console.log("No se encontró ningún ID.");
+  }
 
   useEffect(() => {
     // Verificar si el efecto ya se ha ejecutado
     if (!isEffectExecuted) {
       // Ejecutar la lógica solo una vez al inicio de la aplicación
       console.log("Effect is running");
+      dispatch(asyncIdComercio(parseInt(id[1]) ))
       dispatch(asyncComercio());
       dispatch(asyncUser());
       // Aquí colocas tu lógica de carga de datos
@@ -48,8 +56,11 @@ function App() {
     window.scrollTo(0, 0);
   };
 
+
+
+
   return (
-    <div className="App">
+    <div className="App"   style={{ backgroundImage: `url(${imgBakc})` }}>
       <Switch>
         <Route exact path="/Comander" component={AdminPanel} />
         <Route exact path="/:id?" component={Inicio} />

@@ -9,11 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Spinner from "../assets/Spinner/Spinner";
 import Horarios from "../BtnNavidad/Horarios";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 export default function LandingPage(url) {
+ const {id} =  useParams()
   const { comercio, categorias } = useSelector((state) => state.alldata);
   const API = process.env.REACT_APP_API_STRAPI;
-  const id = url.location.pathname.slice(1, 3);
+  // const id = window.location.pathname.replace(/[\/\W_]/g, ''); // ;
+
   return (
     <div className="animate__animated  animate__zoomIn">
       {!categorias ? <Spinner imageUrl={Logo} /> : null}

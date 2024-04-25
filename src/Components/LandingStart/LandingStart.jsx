@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 import AlertDialogSlide from "../BtnNavidad/BtnNavidad";
 import "./LandingStart.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  asyncCategorias,
-  asyncComercio,
-} from "../redux/slice";
-import { ButtonEnter } from "./ButtonEnter/ButtonEnter";
-import CtaDNI from "../assets/BaneDNI.png";
+import img from "../assets/bgMadre2.png"
+
+
+
+
+
 
 export const Inicio = (url) => {
   const dispatch = useDispatch();
+ const id =  url.location.pathname.replace(/[\/\W_]/g, '')
   const { comercio } = useSelector((state) => state.alldata);
   const [animateOut, setAnimateOut] = useState(false);
+
 
 // </svg>
 
@@ -36,11 +38,12 @@ export const Inicio = (url) => {
 
   if (url.location.pathname === "/") {
     url.location.pathname = "/sinMesa";
-    console.log(url.location.pathname);
+    console.log(url.location.pathname.replace(/[\/\W_]/g, ''));
   }
-
+console.log(id);
   return (
     <div
+    style={{ backgroundImage: `url(${img})` }}
       className={`LandingBack ${
         animateOut ? "animate__animated animate__slideOutUp" : ""
       }`}

@@ -3,9 +3,7 @@ import { Cards } from "../Cards/Cards.jsx";
 import "./Categorias.css";
 import Nav from "../Nav/Nav.jsx";
 import { useDispatch, useSelector } from "react-redux";
-
 import { VerPedido } from "../BtnBag/BtnBag.jsx";
-
 import Spinner from "../assets/Spinner/Spinner.jsx";
 import Logo from "../assets/Logo.png";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min.js";
@@ -43,7 +41,7 @@ export const CompSubCat = ({ idCat }) => {
       }
       acc[subCategoriaId].push(product);
     }
-
+ 
     return acc;
   }, []);
 
@@ -51,7 +49,7 @@ export const CompSubCat = ({ idCat }) => {
   const dynamicVariables = Object.keys(subCategoriaFilters).map((key) => {
     return subCategoriaFilters[key];
   });
-console.log(articulos,"buscando id de sub categoria");
+
   return (
     <div className="containerL">
       <Nav id={id} />
