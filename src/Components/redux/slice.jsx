@@ -250,7 +250,7 @@ export const asyncComercio = () => {
       const id = initialState?.alldata?.idComercio;
 
        const response = await axios.get(
-        `${API_BASE}${id}?populate=categorias.picture&`
+        `${API_BASE}${id}?populate=fondo&populate=categorias.picture`
       );
 
 
