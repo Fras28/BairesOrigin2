@@ -14,7 +14,7 @@ const API = process.env.REACT_APP_API_STRAPI;
 export const CompSubCat = ({ idCat }) => {
   const { id } = useParams(); // Usa el hook useParams para obtener el parámetro de la URL
   const dispatch = useDispatch();
-  const { allProduct, subCategorias } = useSelector((state) => state.alldata);
+  const { allProduct, subCategorias, comercio } = useSelector((state) => state.alldata);
 
   useEffect(() => {
     // Función que se ejecutará cuando el componente se monte o cuando id cambie
@@ -49,21 +49,27 @@ export const CompSubCat = ({ idCat }) => {
   const dynamicVariables = Object.keys(subCategoriaFilters).map((key) => {
     return subCategoriaFilters[key];
   });
-
+  const processedNames = articulos
+  .filter(product => product.attributes.articulos.data.length !== 0) // Filtrar productos con datos de artículos
+  .map(product => {
+    const productName = product.attributes.name;
+    return productName
+      .split(/\[.*?\]|\(.*?\)/) // Dividir la cadena usando corchetes [] y paréntesis ()
+      .map(part => part.trim())
+      .join(""); // Unir las partes filtradas en una sola cadena
+  });
   return (
-    <div className="containerL" style={{backgroundColor:"#3D5C3C", backgroundSize:"cover"}}>
+    <div className="containerL" style={{backgroundColor:`${comercio?.attributes?.rgb}`, backgroundSize:"cover"}}>
       <Nav id={id} />
       <div className="sectioner">
         {articulos?.length > 0 ? (
-          <div className="sectioner">
-            {articulos?.map((product, index) =>
-              product.attributes.articulos.data.length != 0 ? (
-                <a key={index} href={`#${product.id}`}>
-                  {">>"} {product?.attributes.name}
-                </a>
-              ) : null
-            )}
-          </div>
+   <div className="sectioner">
+   {processedNames.length > 0 && processedNames.map((name, index) => (
+     <a key={index} href={`#${articulos[index].id}`}>
+       {">>"} {name}
+     </a>
+   ))}
+ </div>
         ) : null}
       </div>
       <div className="conteinerLC ">

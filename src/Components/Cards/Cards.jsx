@@ -2,9 +2,10 @@ import React from "react";
 import { Card } from "./Card/Card";
 
 import "./Cards.css";
+import { useSelector } from "react-redux";
 
 export const Cards = ({ products }) => {
-
+  const { comercio } = useSelector((state) => state.alldata);
   const loguitoSection = (
     <svg
       width="30"
@@ -18,27 +19,37 @@ export const Cards = ({ products }) => {
       />
     </svg>
   );
+
+
+
+  const processedName = products?.attributes?.name
+  .split(/\(([^)]+)\)/)
+  .map(part => part.split(/\[.*?\]/)) // Dividir por corchetes []
+  .flat() // Aplanar el array
+  .map(part => part.trim())
+  .filter(part => part !== ""); // Eliminar elementos vacíos después de la división
+
+
   return (
     <>
       {products.attributes.articulos.data.length !== 0 ? (
         <div className="carta">
-          <h2 className="titleSection">
+          <h2
+            className="titleSection"
+            style={{ backgroundColor: `${comercio?.attributes?.rgb}` }}
+          >
             {loguitoSection}
             <div>
-              {products?.attributes?.name
-                .split(/(\(.*?\))/)
-                .map((part, index) => (
-                  <div key={index} style={{ display: "block" }}>
-                    {index === 0 ? (
-                      <span style={{ whiteSpace: "nowrap" }}>{part}</span>
-                    ) : (
-                      <span style={{ fontSize: "12px", whiteSpace: "nowrap" }}>
-                        {part}
-                      </span>
-                    )}
-                  </div>
-                ))}
-            </div>
+    {processedName.map((part, index) => (
+      <div key={index} style={{ display: "block" }}>
+        <span style={{ whiteSpace: "nowrap", fontSize: index % 2 === 0 ? "inherit" : "12px" }}>
+          {part}
+        </span>
+      </div>
+    ))}
+  </div>
+
+
           </h2>
           <div className="rowsCard">
             {products.attributes.articulos.data.map((producto) => (

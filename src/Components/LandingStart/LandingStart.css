@@ -210,9 +210,13 @@
   transform: scale(0.95);
 }
 
+.BottomLanding{
+  display: flex;
+  flex-direction: column;
+}
 @media (max-width: 600px) {
   .btnEnter {
-    margin-top: 6rem;
+    margin-top: 4rem;
   }
 
 .buttonComander{
@@ -227,9 +231,9 @@
     display: flex;
     justify-content: center;
   }
-  .BottomLanding {
+  /* .BottomLanding {
     padding-bottom: 5rem;
-  }
+  } */
 
   .contAlerStart{
     padding-top: 5rem;

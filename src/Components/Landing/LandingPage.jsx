@@ -1,18 +1,16 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./LandingPage.css";
-
 import Logo from "../assets/Logo.png";
 import { VerPedido } from "../BtnBag/BtnBag";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import Spinner from "../assets/Spinner/Spinner";
 import Horarios from "../BtnNavidad/Horarios";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 
+const API = process.env.REACT_APP_API_STRAPI;
 export default function LandingPage(url) {
- const {id} =  useParams()
+  const { id } = useParams();
   const { comercio, categorias } = useSelector((state) => state.alldata);
   const API = process.env.REACT_APP_API_STRAPI;
   // const id = window.location.pathname.replace(/[\/\W_]/g, ''); // ;
@@ -23,7 +21,11 @@ export default function LandingPage(url) {
       <div className="naviLanding titCasa ">
         <div className="logoL">
           <NavLink to={`/${id}`}>
-            <img src={Logo} alt="" width="250px" />
+            <img
+              src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
+              alt=""
+              style={{maxHeight:"80px", marginTop:"1rem"}}
+            />
           </NavLink>
         </div>
         <div className="navi2">
@@ -68,10 +70,12 @@ export default function LandingPage(url) {
                 }`}
               >
                 <img
-                  src={categoria?.attributes?.picture?.data != null ?
-                    API +
-                      categoria?.attributes?.picture?.data?.attributes?.formats
-                        ?.small?.url : Logo
+                  src={
+                    categoria?.attributes?.picture?.data != null
+                      ? API +
+                        categoria?.attributes?.picture?.data?.attributes
+                          ?.formats?.small?.url
+                      : Logo
                   }
                   alt="fotito"
                 />
@@ -91,7 +95,7 @@ export default function LandingPage(url) {
         >
           <path d="M59 0.999995L0 1" stroke="#E88A23" />
         </svg>
-        <p className="naviTit3"> Seguinos en </p>
+        <p className="naviTit3" style={{backgroundColor:`${comercio?.attributes?.rgb}`}}> Seguinos en </p>
         <svg
           width="59"
           height="2"

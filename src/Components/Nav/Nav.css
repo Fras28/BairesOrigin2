@@ -58,7 +58,9 @@ h1{
 
   }
   .morton{
-    margin:auto;
+      margin-top: 0;
+      margin-left: 15%;
+      width: 150px;
  }
     .bakBagBtn{
       display: block;

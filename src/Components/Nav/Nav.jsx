@@ -42,7 +42,7 @@ const Nav = (id) => {
   const {comercio} = useSelector((state) => state.alldata);
   
   return (
-    <div className="contNav">
+    <div className="contNav" style={{ "--color-granito": "grey" }}>
       <div className="nav">
         {match && <BackButton />}
         <div className="morton foolishIn">
@@ -50,8 +50,7 @@ const Nav = (id) => {
             <img
            src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
               alt="logoCakes"
-              width="120px"
-            />
+              style={{maxHeight: "80px"  }}     />
           </NavLink>
         </div>
       </div>
