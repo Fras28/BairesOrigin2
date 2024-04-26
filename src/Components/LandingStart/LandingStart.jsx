@@ -43,7 +43,7 @@ export const Inicio = (url) => {
 console.log(id);
   return (
     <div
-    style={{ backgroundImage: `url(${img})` }}
+    // style={{ backgroundImage: `url(${img})` }}
       className={`LandingBack ${
         animateOut ? "animate__animated animate__slideOutUp" : ""
       }`}

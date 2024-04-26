@@ -8,21 +8,22 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import Logo from "../assets/Logo.png"
 import "./BtnNavidad.css";
+import { useState } from "react";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function Horarios() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const horarios = {
-    lunes: ['9 a.m.–1 p.m.', '5–9 p.m.'],
-    martes: ['9 a.m.–1 p.m.', '5–9 p.m.'],
-    miércoles: ['9 a.m.–1 p.m.', '5–9 p.m.'],
-    jueves: ['9 a.m.–1 p.m.', '5–9 p.m.'],
-    viernes: ['9 a.m.–1 p.m.', '5–9 p.m.'],
-    sábado: ['9 a.m.–9 p.m.', '5–9 p.m.'],
+    lunes: ['9 a.m. ','a','  9 p.m.'],
+    martes: ['9 a.m. ','a','  9 p.m.'],
+    miércoles: ['9 a.m. ','a','  9 p.m.'],
+    jueves: ['9 a.m. ','a','  9 p.m.'],
+    viernes: ['9 a.m. ','a','  9 p.m.'],
+    sábado: ['9 a.m. ','a','  9 p.m.'],
     domingo: ['Cerrado'],
   };
 

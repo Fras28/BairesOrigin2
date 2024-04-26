@@ -51,7 +51,7 @@ export const CompSubCat = ({ idCat }) => {
   });
 
   return (
-    <div className="containerL">
+    <div className="containerL" style={{backgroundColor:"#3D5C3C", backgroundSize:"cover"}}>
       <Nav id={id} />
       <div className="sectioner">
         {articulos?.length > 0 ? (

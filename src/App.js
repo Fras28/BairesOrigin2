@@ -25,7 +25,7 @@ import imgBakc from "./Components/assets/bgMadre2.png"
 
 function App() {
   const dispatch = useDispatch();
-  const {  categorias } = useSelector(
+  const {  categorias, comercio } = useSelector(
     (state) => state.alldata
   );
   // Determina si alguno de los estados relevantes ha cambiado
@@ -55,12 +55,12 @@ function App() {
   const toTop = () => {
     window.scrollTo(0, 0);
   };
+  const API = process.env.REACT_APP_API_STRAPI;
 
-
-
+console.log(API+comercio?.attributes?.fondo?.data?.attributes?.formats?.large?.url);
 
   return (
-    <div className="App"   style={{ backgroundImage: `url(${imgBakc})` }}>
+    <div className="App"   style={{ backgroundImage: `url(${API+comercio?.attributes?.fondo?.data?.attributes?.formats?.large?.url})`,  backgroundPosition: "center", backgroundSize:"cover" }}>
       <Switch>
         <Route exact path="/Comander" component={AdminPanel} />
         <Route exact path="/:id?" component={Inicio} />
