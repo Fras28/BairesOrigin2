@@ -70,6 +70,13 @@ export const dataSlice = createSlice({
         categorias: action.payload.attributes.categorias.data,
       };
     },
+    fillComercios: (state, action) => {
+      return {
+        ...state,
+        comercio: action.payload,
+      };
+    },
+
     favProducts: (state, action) => {
       return {
         ...state,
@@ -260,6 +267,28 @@ export const asyncComercio = () => {
     }
   };
 };
+
+export const asyncAllComercios = () => {
+  return async function (dispatch, getState) {
+    try {
+    
+
+       const response = await axios.get(
+        `${API_BASE}?fields[1]=name&populate=logo`
+      );
+
+
+      return dispatch(fillComercios(response.data.data));
+    } catch (error) {
+      console.error("Error fetching data comercio:", error);
+    }
+  };
+};
+
+
+
+
+
 
 export const asyncCategorias = () => {
   return async function (dispatch,getState) {
@@ -590,6 +619,7 @@ export const {
   allCategorias,
   allSubCategorias,
   fillComercio,
+  fillComercios,
   fillClave,
   fillComanda,
   fillUsuario,

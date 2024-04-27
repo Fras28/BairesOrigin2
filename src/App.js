@@ -7,6 +7,7 @@ import { Inicio } from "./Components/LandingStart/LandingStart.jsx";
 import LandingPage from "./Components/Landing/LandingPage.jsx";
 import { BagXX } from "./Components/myBag/myBag.jsx";
 import {
+  asyncAllComercios,
   asyncCategorias,
   asyncComercio,
   asyncIdComercio,
@@ -21,6 +22,8 @@ import { AdminPanel } from "./Components/Comander/AdminPanel.jsx";
 import { useParams } from "react-router-dom/cjs/react-router-dom.js";
 
 import imgBakc from "./Components/assets/bgMadre2.png"
+import BaseUrl, { baseUrl } from "./noUrl/baseUrl.jsx";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min.js";
 // import { Bag } from './Components/Categorias/Bag.jsx';
 
 function App() {
@@ -44,8 +47,13 @@ function App() {
     if (!isEffectExecuted) {
       // Ejecutar la lógica solo una vez al inicio de la aplicación
       console.log("Effect is running");
-      dispatch(asyncIdComercio(parseInt(id[1]) ))
-      dispatch(asyncComercio());
+      if(id){
+        dispatch(asyncIdComercio(parseInt(id[1]) ))
+        dispatch(asyncComercio());
+      }
+      if(!id){
+        dispatch(asyncAllComercios())
+      }
       dispatch(asyncUser());
       // Aquí colocas tu lógica de carga de datos
       setIsEffectExecuted(true); // Marcar el efecto como ejecutado
@@ -62,9 +70,13 @@ console.log(API+comercio?.attributes?.fondo?.data?.attributes?.formats?.large?.u
   return (
     <div className="App"   style={{ backgroundImage: `url(${API+comercio?.attributes?.fondo?.data?.attributes?.formats?.large?.url})`,  backgroundPosition: "center", backgroundSize:"cover" }}>
       <Switch>
+      <Route exact path="/">
+          <Redirect to="/baseUrl" />
+        </Route>
+        <Route exact path="/baseUrl" component={BaseUrl} />
         <Route exact path="/Comander" component={AdminPanel} />
-        <Route exact path="/:id?" component={Inicio} />
-        <Route exact path="/:id/Landing" component={LandingPage} />
+        <Route exact path="/:number?" component={Inicio} />
+        <Route exact path="/:number/Landing" component={LandingPage} />
         {categorias.map((cat) => (
           <Route
             exact

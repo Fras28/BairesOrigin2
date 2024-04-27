@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./LandingPage.css";
-import Logo from "../assets/Logo.png";
 import { VerPedido } from "../BtnBag/BtnBag";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../assets/Spinner/Spinner";
 import Horarios from "../BtnNavidad/Horarios";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
+import dogFace from "../assets/dogFace.png"
 
 const API = process.env.REACT_APP_API_STRAPI;
 export default function LandingPage(url) {
@@ -17,10 +17,10 @@ export default function LandingPage(url) {
 
   return (
     <div className="animate__animated  animate__zoomIn">
-      {!categorias ? <Spinner imageUrl={Logo} /> : null}
+      {!categorias ? <Spinner imageUrl={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} /> : null}
       <div className="naviLanding titCasa ">
         <div className="logoL">
-          <NavLink to={`/${id}`}>
+          <NavLink to={`/${comercio.id}`}>
             <img
               src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
               alt=""
@@ -75,7 +75,7 @@ export default function LandingPage(url) {
                       ? API +
                         categoria?.attributes?.picture?.data?.attributes
                           ?.formats?.small?.url
-                      : Logo
+                      :dogFace
                   }
                   alt="fotito"
                 />

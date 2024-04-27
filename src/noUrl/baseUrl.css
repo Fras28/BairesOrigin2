@@ -1,0 +1,103 @@
+.noUrl{
+    /* background-image:url(https://i.pinimg.com/564x/ac/95/ff/ac95ffa91025ca875854caf5e179bf38.jpg) ;interiorEditado.jpg */
+    background-image:url("../Components/assets/backMorton.jpg") ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.LandingStartContainer{
+  height: 50%;
+}
+
+
+.marcaLanging{
+    /* background-color: rgba(255, 255, 255, 0.541); */
+    padding: 1rem; 
+
+}
+
+.nameCart{
+  color: black;
+  font-family: 'Noto Serif Oriya', serif;
+}
+
+
+.Enter {
+    padding: 0.3em 1.8em;
+    border: 2px solid #fff;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    height: 3rem;
+    border-radius: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+  }
+  
+  .Enter::after {
+    content: "";
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: lightblue;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 800ms ease-in-out;
+    z-index: -1;
+    opacity: 80%;
+  }
+  
+  .Enter::before {
+    content: "";
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 800ms ease-in-out;
+    z-index: -1;
+    opacity: 60%;
+  }
+  
+  .Enter:hover::after {
+    width: 37.5%;
+  }
+  
+  .Enter:hover::before {
+    width: 37.5%;
+  }
+  .Enter:hover{
+    color: gold;
+    font-weight: 600;
+}
+.btnEnter{
+  margin-top: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .btnEnter{
+  margin-top: 6rem;
+}
+}

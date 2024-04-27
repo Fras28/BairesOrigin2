@@ -48,7 +48,12 @@ const Nav = (id) => {
         <div className="morton foolishIn">
           <NavLink to={`/${match?.params.id}/Landing`}>
             <img
-           src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
+src={
+  comercio?.attributes?.logo?.data?.attributes?.formats?.small?.url
+    ? `${API}${comercio?.attributes?.logo?.data?.attributes?.formats?.small?.url}`
+    : `${API}${comercio?.attributes?.logo?.data?.attributes?.url}`
+}
+
               alt="logoCakes"
               style={{maxHeight: "80px"  }}     />
           </NavLink>

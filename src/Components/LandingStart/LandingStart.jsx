@@ -5,15 +5,18 @@ import AlertDialogSlide from "../BtnNavidad/BtnNavidad";
 import "./LandingStart.css";
 import { useDispatch, useSelector } from "react-redux";
 import img from "../assets/bgMadre2.png";
+import { asyncIdComercio } from "../redux/slice";
 const API = process.env.REACT_APP_API_STRAPI;
 export const Inicio = (url) => {
   const dispatch = useDispatch();
   const id = url.location.pathname.replace(/[\/\W_]/g, "");
-  const { comercio } = useSelector((state) => state.alldata);
+  const { comercio, categorias } = useSelector((state) => state.alldata);
   const [animateOut, setAnimateOut] = useState(false);
 
   // </svg>
-
+  if (categorias.lenght < 0 ) {
+    dispatch(asyncIdComercio(parseInt(id)));
+  }
   const toTop = () => {
     window.scrollTo(0, 0);
   };
@@ -59,11 +62,11 @@ export const Inicio = (url) => {
           </p>{" "}
         </div>
         <div className="BottomLanding">
-        <img
-              src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
-              alt=""
-              style={{maxWidth:"70%", margin:"auto"}}
-            />
+          <img
+            src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
+            alt=""
+            style={{ maxWidth: "70%", margin: "auto" }}
+          />
           <div className="contAlerStart">
             <AlertDialogSlide />
           </div>
