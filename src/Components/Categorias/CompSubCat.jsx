@@ -9,7 +9,7 @@ import Logo from "../assets/Logo.png";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min.js";
 import { asyncSubCategoria } from "../redux/slice.jsx";
 
-const API = process.env.REACT_APP_API_STRAPI;
+
 
 export const CompSubCat = ({ idCat }) => {
   const { id } = useParams(); // Usa el hook useParams para obtener el parámetro de la URL
@@ -86,7 +86,7 @@ export const CompSubCat = ({ idCat }) => {
             </div>
           </div>
         ) : null}
-        {articulos.length === 0 ? <Spinner imageUrl={Logo} /> : null}
+        {articulos.length === 0 ? <Spinner  /> : null}
       </div>
       <VerPedido id={id} />
     </div>

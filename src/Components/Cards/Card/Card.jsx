@@ -4,7 +4,7 @@ import { asyncCancelFav, asyncfavProducts } from "../../redux/slice";
 import "./Card.css";
 
 export const Card = ({ producto }) => {
-  let { favProd } = useSelector((state) => state.alldata);
+  let { favProd, comercio } = useSelector((state) => state.alldata);
   const dispatch = useDispatch();
   const [articles, setArticles] = useState({
     name: [],
@@ -47,7 +47,7 @@ export const Card = ({ producto }) => {
        {product.price3 ?<p className="price"><b style={{border:" solid 2px orange", borderRadius:"50%", padding:"1px 5px"}}>G</b> - ${product.price3}</p>:null}
         </div>: <p className="price">${product.price}</p>}
       </div>
-      {/* <div className="rightInfo">
+      {comercio?.attributes?.bag  === true ? <div className="rightInfo">
         <div className="divBtnProd">
           {thisFav.length === 0 ? (
             <button className="btnPlus" onClick={artAdd}>
@@ -65,7 +65,7 @@ export const Card = ({ producto }) => {
             </div>
           )}
         </div>
-      </div> */}
+      </div> : null }
     </div>
   );
 };
