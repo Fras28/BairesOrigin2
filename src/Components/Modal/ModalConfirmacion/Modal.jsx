@@ -20,12 +20,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function ModalGen({ Child, txtBtn }) {
+  const API = process.env.REACT_APP_API_STRAPI;
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false); // Estado para indicar si handleProducts está en proceso
-  const { categorias } = useSelector((state) => state.alldata);
+  const { categorias, comercio } = useSelector((state) => state.alldata);
   const solo_ids = categorias?.map((cat) => cat.id) || [];
-
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -38,7 +38,11 @@ export default function ModalGen({ Child, txtBtn }) {
   return (
     <div>
       <div>
-        <button onClick={handleClickOpen} className="generic buttonDash" disabled={loading}>
+        <button
+          onClick={handleClickOpen}
+          className="generic buttonDash"
+          disabled={loading}
+        >
           {txtBtn ? txtBtn : "+ Proveedor"}
         </button>
       </div>
@@ -56,7 +60,11 @@ export default function ModalGen({ Child, txtBtn }) {
       >
         <DialogTitle className="infoNavi">
           <div>
-            <img src={Logo} alt="logo Coqui Cakes" width="100px" />
+            <img
+              src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`}
+              alt="logo Comercio"
+              width="100px"
+            />
           </div>
           <div style={{ marginLeft: "30%" }}>
             <button className="exit" onClick={handleClose}>

@@ -112,34 +112,8 @@
   align-items: center;
 }
 
-.Btn2 {
-  width: 140px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(
-    to right,
-    #77530a,
-    #ffd277,
-    #77530a,
-    #77530a,
-    #ffd277,
-    #77530a
-  );
-  background-size: 250%;
-  background-position: left;
-  color: #ffd277;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition-duration: 1s;
-  overflow: hidden;
-  margin-top: 2rem;
-}
-
-.Btn2::before {
+.Btn2 {   width: 140px;   height: 40px;   border: none;   border-radius: 10px;   border: solid;   border-color: linear-gradient(     to right,     #77530a,     #ffd277,     #77530a,     #77530a,     #ffd277,     #77530a   );   background-color: rgba(0, 0, 0, 0.842);   background-size: 250%;   background-position: left;   color: goldenrod;   position: relative;   display: flex;   align-items: center;   justify-content: center;   cursor: pointer;   transition-duration: 1s;   overflow: hidden;   margin-top: 2rem; }
+/* .Btn2::before {
   position: absolute;
   content: "Alsina 23";
   color: #ffd277;
@@ -152,7 +126,7 @@
   transition-duration: 1s;
   background-color: rgba(0, 0, 0, 0.842);
   background-size: 200%;
-}
+} */
 .Btn {
   width: 180px;
   height: 40px;

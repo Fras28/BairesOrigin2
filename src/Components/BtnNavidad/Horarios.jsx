@@ -9,6 +9,7 @@ import Slide from "@mui/material/Slide";
 import Logo from "../assets/Logo.png"
 import "./BtnNavidad.css";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -16,7 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function Horarios() {
   const [open, setOpen] = useState(false);
-
+const {comercio} = useSelector(state => state.alldata)
   const horarios = {
     lunes: ['9 a.m. ','a','  9 p.m.'],
     martes: ['9 a.m. ','a','  9 p.m.'],
@@ -66,18 +67,7 @@ export default function Horarios() {
     flexDirection: "column",
     alignItems: "center"}}>
         <h2>Horarios de la Semana</h2>
-            <ul style={{paddingLeft:"0"}}>
-              {Object.entries(horarios).map(([dia, horas]) => (
-                <li key={dia} style={{display:"flex",justifyContent: "space-between",alignItems: "center", gap:"10px"}}>
-                  <strong>{dia}:</strong>
-               
-                    {horas.map((hora, index) => (
-                      <p key={index} style={{whiteSpace: "nowrap"}}>{hora}</p>
-                    ))}
-                 
-                </li>
-              ))}
-            </ul>
+        <pre>{comercio.attributes.horarios}</pre>
         </DialogContent>
         <DialogActions> </DialogActions>
       </Dialog>

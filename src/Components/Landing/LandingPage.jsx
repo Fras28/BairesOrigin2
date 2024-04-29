@@ -79,7 +79,7 @@ export default function LandingPage(url) {
                   }
                   alt="fotito"
                 />
-                <p>{categoria?.attributes?.name}</p>
+                <p style={{fontSize:"14px"}}>{categoria?.attributes?.name}</p>
               </div>
             </NavLink>
           ))}

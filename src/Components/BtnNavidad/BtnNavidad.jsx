@@ -8,6 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import Logo from "../assets/Logo.png";
 import "./BtnNavidad.css";
+import { useSelector } from "react-redux";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -15,7 +16,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function AlertDialogSlide() {
   const [open, setOpen] = React.useState(false);
-
+const { comercio } = useSelector(state => state.alldata)
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -62,23 +63,10 @@ export default function AlertDialogSlide() {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Madre 🤍 Brunch & Cafe. <br /> Espacio pet friendly 🐕🐈 Cafetería
-            tradicional ☕️🥐
-            <br />
-            <br />
-            <div style={{ textAlign: "center" }}>
-              <b
-                style={{
-                  color: "green",
-                  textAlign: "center",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                DESAYUNO Y MERIENDA LIBRE
-              </b>{" "}
-              <br />
-              - 08:30 a 10:30hs -<br />- 17:00 a 19:00hs -
-            </div>
+   <pre>
+{comercio?.attributes?.presentacion}
+</pre>
+       
           </DialogContentText>
         </DialogContent>
         <DialogActions> </DialogActions>

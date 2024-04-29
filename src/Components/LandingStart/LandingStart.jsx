@@ -67,20 +67,20 @@ export const Inicio = (url) => {
             alt=""
             style={{ maxWidth: "70%", margin: "auto" }}
           />
-          <div className="contAlerStart">
+         {comercio?.attributes?.presentacion != null?  <div className="contAlerStart">
             <AlertDialogSlide />
-          </div>
+          </div> :null}
 
           <div className="btnEnter" onClick={handleButtonClick}>
             {/* <ButtonEnter titulo="Ver Catalogo" /> */}
             <button className="Btn" />
           </div>
           <div className="btnEnter2">
-            <a
+          <a
               className="Btn2"
-              href="https://www.google.com/maps/dir//DIRECCION+cafe+madre/@-38.7186808,-62.3059703,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95edbd007363273b:0x236c527b644bb0b!2m2!1d-62.264685!2d-38.718755?entry=ttu"
+              href={comercio?.attributes?.gps}
               target="_blank"
-            />
+            >📍{comercio?.attributes?.direccion} </a>
           </div>
         </div>
         <Link to="/Comander" className="buttonComander">
