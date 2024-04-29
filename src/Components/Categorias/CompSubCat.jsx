@@ -59,7 +59,7 @@ export const CompSubCat = ({ idCat }) => {
       .join(""); // Unir las partes filtradas en una sola cadena
   });
   return (
-    <div className="containerL" style={{backgroundColor:`${comercio?.attributes?.rgb}`, backgroundSize:"cover"}}>
+    <div className="containerL" style={{backgroundColor:`${comercio?.attributes?.rgb}`, backgroundSize:"cover", width:"100%"}}>
       <Nav id={id} />
       <div className="sectioner">
         {articulos?.length > 0 ? (

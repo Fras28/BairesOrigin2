@@ -14,7 +14,7 @@ import "./ModalConfirmar.css";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
+const API = process.env.REACT_APP_API_STRAPI;
 export default function ModalConfirm({ total }) {
   const dispatch = useDispatch();
   const { comercio, favProd } = useSelector((state) => state.alldata);
@@ -120,7 +120,7 @@ export default function ModalConfirm({ total }) {
       >
         <DialogTitle className="infoNavi">
           <div>
-            <img src={Logo} alt="logo Coqui Cakes" width="100px" />
+            <img src={`${API}${comercio?.attributes?.logo?.data?.attributes?.url}`} alt="logo Coqui Cakes" width="100px" />
           </div>
           <div style={{ marginLeft: "30%" }}>
             <button className="exit" onClick={handleClose}>

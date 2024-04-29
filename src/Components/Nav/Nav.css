@@ -50,9 +50,22 @@ h1{
   .back:hover{
     box-shadow: 1px 2px 1px black;
   }
-  .nav{
-    justify-content: flex-start
-  }
+ .nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav > * {
+  flex: 1;
+}
+
+.nav > :first-child {
+  margin-right: 10px; /* Ajusta el margen si es necesario */
+}
+
+.nav > :last-child {
+  margin-left: 10px; /* Ajusta el margen si es necesario */
+}
   .backLink{
     display: block;
 

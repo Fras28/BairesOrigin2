@@ -1,27 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import { Foot } from "./Components/Footer/Footer.jsx";
 import { MyFoot } from "./Components/myFoot/MyFooter.jsx";
 import { Inicio } from "./Components/LandingStart/LandingStart.jsx";
 import LandingPage from "./Components/Landing/LandingPage.jsx";
 import { BagXX } from "./Components/myBag/myBag.jsx";
 import {
   asyncAllComercios,
-  asyncCategorias,
   asyncComercio,
   asyncIdComercio,
-  asyncSubCategorias,
   asyncUser,
 } from "./Components/redux/slice.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import store, { saveStateToLocalStorage } from "./Components/redux/store.jsx";
-import { ToastContainer } from "react-toastify";
+
 import { CompSubCat } from "./Components/Categorias/CompSubCat.jsx";
 import { AdminPanel } from "./Components/Comander/AdminPanel.jsx";
-import { useParams } from "react-router-dom/cjs/react-router-dom.js";
 
-import imgBakc from "./Components/assets/bgMadre2.png"
 import BaseUrl, { baseUrl } from "./noUrl/baseUrl.jsx";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min.js";
 // import { Bag } from './Components/Categorias/Bag.jsx';
@@ -88,7 +82,7 @@ console.log(API+comercio?.attributes?.fondo?.data?.attributes?.formats?.large?.u
         <Route exact path="/:id/Landing/Comander" component={AdminPanel} />
         <Route exact path="/:id/bag" component={BagXX} />
       </Switch>
-      <Foot />
+      {/* <Foot /> */}
       <MyFoot />
     </div>
   );
