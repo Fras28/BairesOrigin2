@@ -74,7 +74,7 @@ export default function LandingPage(url) {
                     categoria?.attributes?.picture?.data != null
                       ? API +
                         categoria?.attributes?.picture?.data?.attributes
-                          ?.formats?.small?.url
+                          ?.url
                       :dogFace
                   }
                   alt="fotito"

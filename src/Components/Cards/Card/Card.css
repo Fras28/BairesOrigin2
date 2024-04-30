@@ -1,13 +1,13 @@
 .nameProd {
   color: #375a39;
   margin-bottom: 0;
-  margin-top: 0.5rem;
+  margin-top: 0;
   text-align: left;
-  font-family: "Montserrat", sans-serif;
   white-space: nowrap;
- font-size: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
-.nameProdEdit{
+.nameProdEdit {
   font-size: 1rem;
 }
 .detProd {
@@ -23,10 +23,8 @@
   font-family: "Montserrat", sans-serif;
   text-align: end;
   padding-right: 0.5rem;
-  padding-top: 1rem;
   text-align: center;
   display: flex;
-  gap: 0.5rem;
 }
 .divBtnProd {
   width: 90px;
@@ -54,9 +52,9 @@
 .leftInfo {
   display: flex;
   flex-direction: column;
-  padding: 0px;
   align-items: flex-start;
-  padding-left: 1rem;
+  padding-left: 2rem;
+  gap: 1rem;
 }
 .masMenos {
   display: flex;
@@ -88,27 +86,36 @@
   padding: 0.3rem 0.7rem 0.3rem 0.7rem;
   border-radius: 100%;
 }
+.CardCont {
+  background-color: whitesmoke;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 1rem;
+  box-shadow: 0px 0px 8px #fdab97;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
 
+}
 .contCard {
   align-content: flex-start;
   align-items: center;
   background-color: whitesmoke;
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
-  box-shadow: 0px 0px 8px #fdab97;
-  padding: 1rem 0.3rem 1rem 0.3rem;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  margin-top: .25rem;
+  gap: .5rem;
 }
 .contCardEdit {
   align-items: center;
   background-color: whitesmoke;
   display: flex;
   justify-content: flex-start;
-text-wrap: nowrap;
+  text-wrap: nowrap;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-  rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   overflow: hidden;
 }
 .price {
@@ -142,8 +149,6 @@ text-wrap: nowrap;
     margin-right: 0px;
   }
 }
-
-
 
 /* +----------------------------------- CARD EDIT ------------------------------------+ */
 
