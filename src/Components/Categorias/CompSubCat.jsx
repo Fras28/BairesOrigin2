@@ -62,11 +62,13 @@ export const CompSubCat = ({ idCat }) => {
     <div className="containerL" style={{backgroundColor:`${comercio?.attributes?.rgb}`, backgroundSize:"cover", width:"100%"}}>
       <Nav id={id} />
       <div className="sectioner">
+ 
         {articulos?.length > 0 ? (
-   <div className="sectioner">
+   <div className="sectioner" style={{backgroundColor:`${comercio.attributes.rgb}`}}>
+    <p> Secciones : </p>
    {processedNames.length > 0 && processedNames.map((name, index) => (
      <a key={index} href={`#${articulos[index].id}`}>
-       {">>"} {name}
+        {name}
      </a>
    ))}
  </div>
