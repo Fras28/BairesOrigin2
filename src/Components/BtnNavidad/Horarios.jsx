@@ -67,7 +67,7 @@ const {comercio} = useSelector(state => state.alldata)
     flexDirection: "column",
     alignItems: "center"}}>
         <h2>Horarios de la Semana</h2>
-        <pre>{comercio.attributes.horarios}</pre>
+        <pre>{comercio?.attributes?.horarios}</pre>
         </DialogContent>
         <DialogActions> </DialogActions>
       </Dialog>
